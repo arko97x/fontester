@@ -186,18 +186,18 @@ export default function Home() {
                 <p className="text-lg text-gray-600" style={{ fontFamily: `${selectedBody.name}` }}>Just another boring bit of hero-section body copy. Nothing much to see here except for testing different fonts out. Hope this helps!</p>
               </div>
               <div className="flex flex-col sm:flex-row">
-                <div class="w-auto h-auto">
+                <div className="w-auto h-auto">
                   <a
-                    class="w-full sm:w-auto inline-flex justify-center px-8 py-4 bg-[#40916C] hover:bg-[#43AA8B] text-white font-medium text-md rounded-full"
+                    className="w-full sm:w-auto inline-flex justify-center px-8 py-4 bg-[#40916C] hover:bg-[#43AA8B] text-white font-medium text-md rounded-full"
                     style={{ fontFamily: `${selectedBody.name}` }}
                     href="#"
                   >
                     Test primary button
                   </a>
                 </div>
-                <div class="w-auto h-auto">
+                <div className="w-auto h-auto">
                   <a
-                    class="w-full sm:w-auto inline-flex justify-center px-8 py-4 bg-white text-[#40916C] hover:text-[#43AA8B] font-medium text-md rounded-full"
+                    className="w-full sm:w-auto inline-flex justify-center px-8 py-4 bg-white text-[#40916C] hover:text-[#43AA8B] font-medium text-md rounded-full"
                     style={{ fontFamily: `${selectedBody.name}` }}
                     href="#"
                   >
