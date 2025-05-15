@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Nunito&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700&display=swap" rel="stylesheet" />
     <style>
         body {
             font-family: 'Nunito', sans-serif;
@@ -25,49 +26,50 @@
 <body class="bg-white text-gray-800">
     <!-- Font Tester Bar -->
     <div id="font-tester-bar"
-        class="fixed top-0 left-0 w-full z-50 bg-black text-gray-300 border-b border-gray-300 flex flex-nowrap items-center justify-center h-auto min-h-[48px] px-2 gap-2 text-sm max-w-full overflow-x-auto">
+        class="fixed top-0 left-0 w-full z-50 bg-black text-gray-300 border-b border-gray-300 flex flex-nowrap items-center justify-center h-auto min-h-[48px] px-2 gap-2 text-sm max-w-full overflow-x-auto"
+        style="font-family: 'IBM Plex Sans', sans-serif;">
         <label class="flex items-center space-x-2 min-w-0">
             <span class="font-semibold">Heading:</span>
             <span class="relative w-full sm:w-44 min-w-0">
                 <select id="heading-font-select"
                     class="border rounded px-2 py-1 w-full pr-8 appearance-none bg-black text-white truncate">
-                    <option value="Merriweather, serif">Merriweather</option>
-                    <option value="Playfair Display, serif">Playfair Display</option>
-                    <option value="Lora, serif">Lora</option>
-                    <option value="PT Serif, serif">PT Serif</option>
-                    <option value="Roboto Slab, serif">Roboto Slab</option>
-                    <option value="Libre Baskerville, serif">Libre Baskerville</option>
-                    <option value="Source Serif Pro, serif">Source Serif Pro</option>
-                    <option value="Noto Serif, serif">Noto Serif</option>
+                    <option value="Alegreya, serif">Alegreya</option>
+                    <option value="Arvo, serif">Arvo</option>
+                    <option value="Bitter, serif">Bitter</option>
+                    <option value="Bree Serif, serif">Bree Serif</option>
+                    <option value="Cardo, serif">Cardo</option>
+                    <option value="Cormorant Garamond, serif">Cormorant Garamond</option>
+                    <option value="Crete Round, serif">Crete Round</option>
                     <option value="Crimson Text, serif">Crimson Text</option>
                     <option value="DM Serif Display, serif">DM Serif Display</option>
-                    <option value="Bitter, serif">Bitter</option>
-                    <option value="Cardo, serif">Cardo</option>
-                    <option value="Arvo, serif">Arvo</option>
-                    <option value="Old Standard TT, serif">Old Standard TT</option>
-                    <option value="EB Garamond, serif">EB Garamond</option>
-                    <option value="Cormorant Garamond, serif">Cormorant Garamond</option>
-                    <option value="Tinos, serif">Tinos</option>
-                    <option value="Zilla Slab, serif">Zilla Slab</option>
-                    <option value="Vollkorn, serif">Vollkorn</option>
-                    <option value="Spectral, serif">Spectral</option>
-                    <option value="Alegreya, serif">Alegreya</option>
-                    <option value="Bree Serif, serif">Bree Serif</option>
-                    <option value="Crete Round, serif">Crete Round</option>
                     <option value="Domine, serif">Domine</option>
+                    <option value="EB Garamond, serif">EB Garamond</option>
+                    <option value="Georgia, serif">Georgia</option>
+                    <option value="Libre Baskerville, serif">Libre Baskerville</option>
+                    <option value="Lora, serif">Lora</option>
                     <option value="Lusitana, serif">Lusitana</option>
                     <option value="Martel, serif">Martel</option>
+                    <option value="Merriweather, serif">Merriweather</option>
                     <option value="Neuton, serif">Neuton</option>
+                    <option value="Noto Serif, serif">Noto Serif</option>
+                    <option value="Old Standard TT, serif">Old Standard TT</option>
+                    <option value="Playfair Display, serif">Playfair Display</option>
                     <option value="Prata, serif">Prata</option>
+                    <option value="PT Serif, serif">PT Serif</option>
                     <option value="Quattrocento, serif">Quattrocento</option>
+                    <option value="Roboto Slab, serif">Roboto Slab</option>
                     <option value="Slabo 27px, serif">Slabo 27px</option>
                     <option value="Sorts Mill Goudy, serif">Sorts Mill Goudy</option>
+                    <option value="Source Serif Pro, serif">Source Serif Pro</option>
+                    <option value="Spectral, serif">Spectral</option>
                     <option value="Staatliches, serif">Staatliches</option>
                     <option value="Taviraj, serif">Taviraj</option>
-                    <option value="Vesper Libre, serif">Vesper Libre</option>
-                    <option value="Yeseva One, serif">Yeseva One</option>
-                    <option value="Georgia, serif">Georgia</option>
                     <option value="Times New Roman, Times, serif">Times New Roman</option>
+                    <option value="Tinos, serif">Tinos</option>
+                    <option value="Vesper Libre, serif">Vesper Libre</option>
+                    <option value="Vollkorn, serif">Vollkorn</option>
+                    <option value="Yeseva One, serif">Yeseva One</option>
+                    <option value="Zilla Slab, serif">Zilla Slab</option>
                 </select>
                 <svg class="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-white"
                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,41 +82,40 @@
             <span class="relative w-full sm:w-44 min-w-0">
                 <select id="body-font-select"
                     class="border rounded px-2 py-1 w-full pr-8 appearance-none bg-black text-white truncate">
-                    <option value="Roboto, sans-serif">Roboto</option>
-                    <option value="Open Sans, sans-serif">Open Sans</option>
-                    <option value="Inter, sans-serif">Inter</option>
-                    <option value="Lato, sans-serif">Lato</option>
-                    <option value="Montserrat, sans-serif">Montserrat</option>
-                    <option value="Nunito, sans-serif">Nunito</option>
-                    <option value="Source Sans Pro, sans-serif">Source Sans Pro</option>
-                    <option value="Poppins, sans-serif">Poppins</option>
-                    <option value="Raleway, sans-serif">Raleway</option>
-                    <option value="Ubuntu, sans-serif">Ubuntu</option>
-                    <option value="Noto Sans, sans-serif">Noto Sans</option>
-                    <option value="PT Sans, sans-serif">PT Sans</option>
-                    <option value="Work Sans, sans-serif">Work Sans</option>
-                    <option value="Mulish, sans-serif">Mulish</option>
-                    <option value="Quicksand, sans-serif">Quicksand</option>
-                    <option value="Fira Sans, sans-serif">Fira Sans</option>
+                    <option value="Arial, Helvetica, sans-serif">Arial</option>
                     <option value="Assistant, sans-serif">Assistant</option>
                     <option value="Barlow, sans-serif">Barlow</option>
                     <option value="Cabin, sans-serif">Cabin</option>
                     <option value="Cairo, sans-serif">Cairo</option>
                     <option value="Exo 2, sans-serif">Exo 2</option>
+                    <option value="Fira Sans, sans-serif">Fira Sans</option>
+                    <option value="Helvetica Neue, Helvetica, Arial, sans-serif">Helvetica Neue</option>
                     <option value="IBM Plex Sans, sans-serif">IBM Plex Sans</option>
+                    <option value="Inter, sans-serif">Inter</option>
                     <option value="Josefin Sans, sans-serif">Josefin Sans</option>
                     <option value="Karla, sans-serif">Karla</option>
+                    <option value="Lato, sans-serif">Lato</option>
+                    <option value="Montserrat, sans-serif">Montserrat</option>
                     <option value="Maven Pro, sans-serif">Maven Pro</option>
                     <option value="Mukta, sans-serif">Mukta</option>
+                    <option value="Mulish, sans-serif">Mulish</option>
+                    <option value="Noto Sans, sans-serif">Noto Sans</option>
+                    <option value="Nunito, sans-serif">Nunito</option>
+                    <option value="Open Sans, sans-serif">Open Sans</option>
                     <option value="Oxygen, sans-serif">Oxygen</option>
+                    <option value="Poppins, sans-serif">Poppins</option>
+                    <option value="PT Sans, sans-serif">PT Sans</option>
                     <option value="Questrial, sans-serif">Questrial</option>
-                    <option value="Signika, sans-serif">Signika</option>
-                    <option value="Titillium Web, sans-serif">Titillium Web</option>
-                    <option value="Varela Round, sans-serif">Varela Round</option>
-                    <option value="Georgia, serif">Georgia</option>
-                    <option value="Arial, Helvetica, sans-serif">Arial</option>
-                    <option value="Helvetica Neue, Helvetica, Arial, sans-serif">Helvetica Neue</option>
+                    <option value="Quicksand, sans-serif">Quicksand</option>
+                    <option value="Raleway, sans-serif">Raleway</option>
+                    <option value="Roboto, sans-serif">Roboto</option>
                     <option value="Segoe UI, Arial, sans-serif">Segoe UI</option>
+                    <option value="Signika, sans-serif">Signika</option>
+                    <option value="Source Sans Pro, sans-serif">Source Sans Pro</option>
+                    <option value="Titillium Web, sans-serif">Titillium Web</option>
+                    <option value="Ubuntu, sans-serif">Ubuntu</option>
+                    <option value="Varela Round, sans-serif">Varela Round</option>
+                    <option value="Work Sans, sans-serif">Work Sans</option>
                 </select>
                 <svg class="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-white"
                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
