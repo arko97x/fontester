@@ -147,27 +147,66 @@
                 document.head.appendChild(link);
             }
         }
-        function updateFonts() {
-            const headingFont = document.getElementById('heading-font-select').value;
-            const bodyFont = document.getElementById('body-font-select').value;
+        function updateFonts(updateUrl = true) {
+            const headingSelect = document.getElementById('heading-font-select');
+            const bodySelect = document.getElementById('body-font-select');
+            const headingFont = headingSelect.value;
+            const bodyFont = bodySelect.value;
             loadFont(headingFont);
             loadFont(bodyFont);
             document.body.style.fontFamily = bodyFont;
             document.querySelectorAll('h1, h2, h3, h4').forEach(el => {
                 el.style.fontFamily = headingFont;
             });
+            // Update URL with font selections
+            if (updateUrl) {
+                const params = new URLSearchParams(window.location.search);
+                params.set('heading', headingSelect.options[headingSelect.selectedIndex].text);
+                params.set('body', bodySelect.options[bodySelect.selectedIndex].text);
+                const newUrl = `${window.location.pathname}?${params.toString()}`;
+                window.history.replaceState({}, '', newUrl);
+            }
         }
-        document.getElementById('heading-font-select').addEventListener('change', updateFonts);
-        document.getElementById('body-font-select').addEventListener('change', updateFonts);
-        // Set initial fonts
-        window.addEventListener('DOMContentLoaded', updateFonts);
+        document.getElementById('heading-font-select').addEventListener('change', () => updateFonts(true));
+        document.getElementById('body-font-select').addEventListener('change', () => updateFonts(true));
+        // Set initial fonts from URL if present
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const heading = params.get('heading');
+            const body = params.get('body');
+            const headingSelect = document.getElementById('heading-font-select');
+            const bodySelect = document.getElementById('body-font-select');
+            if (heading) {
+                for (let i = 0; i < headingSelect.options.length; i++) {
+                    if (headingSelect.options[i].text === heading) {
+                        headingSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            if (body) {
+                for (let i = 0; i < bodySelect.options.length; i++) {
+                    if (bodySelect.options[i].text === body) {
+                        bodySelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            updateFonts(false);
+            // Always update the URL to reflect the current font pair
+            const params2 = new URLSearchParams(window.location.search);
+            params2.set('heading', headingSelect.options[headingSelect.selectedIndex].text);
+            params2.set('body', bodySelect.options[bodySelect.selectedIndex].text);
+            const newUrl = `${window.location.pathname}?${params2.toString()}`;
+            window.history.replaceState({}, '', newUrl);
+        });
         // Randomize fonts button
         document.getElementById('randomize-fonts').addEventListener('click', function () {
             const headingSelect = document.getElementById('heading-font-select');
             const bodySelect = document.getElementById('body-font-select');
             headingSelect.selectedIndex = Math.floor(Math.random() * headingSelect.options.length);
             bodySelect.selectedIndex = Math.floor(Math.random() * bodySelect.options.length);
-            updateFonts();
+            updateFonts(true);
         });
     </script>
     <div style="height:48px;"></div>
