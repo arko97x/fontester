@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fon(t)ester</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Nunito&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Lora', serif;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+    <!-- Font Tester Bar -->
+    <div id="font-tester-bar"
+        class="fixed top-0 left-0 w-full z-50 bg-black text-gray-300 border-b border-gray-300 flex flex-nowrap items-center justify-center h-auto min-h-[48px] px-2 gap-2 text-sm max-w-full overflow-x-auto">
+        <label class="flex items-center space-x-2 min-w-0">
+            <span class="font-semibold">Heading:</span>
+            <span class="relative w-full sm:w-44 min-w-0">
+                <select id="heading-font-select"
+                    class="border rounded px-2 py-1 w-full pr-8 appearance-none bg-black text-white truncate">
+                    <option value="Merriweather, serif">Merriweather</option>
+                    <option value="Playfair Display, serif">Playfair Display</option>
+                    <option value="Lora, serif">Lora</option>
+                    <option value="PT Serif, serif">PT Serif</option>
+                    <option value="Roboto Slab, serif">Roboto Slab</option>
+                    <option value="Libre Baskerville, serif">Libre Baskerville</option>
+                    <option value="Source Serif Pro, serif">Source Serif Pro</option>
+                    <option value="Noto Serif, serif">Noto Serif</option>
+                    <option value="Crimson Text, serif">Crimson Text</option>
+                    <option value="DM Serif Display, serif">DM Serif Display</option>
+                    <option value="Bitter, serif">Bitter</option>
+                    <option value="Cardo, serif">Cardo</option>
+                    <option value="Arvo, serif">Arvo</option>
+                    <option value="Old Standard TT, serif">Old Standard TT</option>
+                    <option value="EB Garamond, serif">EB Garamond</option>
+                    <option value="Cormorant Garamond, serif">Cormorant Garamond</option>
+                    <option value="Tinos, serif">Tinos</option>
+                    <option value="Zilla Slab, serif">Zilla Slab</option>
+                    <option value="Georgia, serif">Georgia</option>
+                    <option value="Times New Roman, Times, serif">Times New Roman</option>
+                </select>
+                <svg class="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-white"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </span>
+        </label>
+        <label class="flex items-center space-x-2 min-w-0">
+            <span class="font-semibold">Body:</span>
+            <span class="relative w-full sm:w-44 min-w-0">
+                <select id="body-font-select"
+                    class="border rounded px-2 py-1 w-full pr-8 appearance-none bg-black text-white truncate">
+                    <option value="Roboto, sans-serif">Roboto</option>
+                    <option value="Open Sans, sans-serif">Open Sans</option>
+                    <option value="Inter, sans-serif">Inter</option>
+                    <option value="Lato, sans-serif">Lato</option>
+                    <option value="Montserrat, sans-serif">Montserrat</option>
+                    <option value="Nunito, sans-serif">Nunito</option>
+                    <option value="Source Sans Pro, sans-serif">Source Sans Pro</option>
+                    <option value="Poppins, sans-serif">Poppins</option>
+                    <option value="Raleway, sans-serif">Raleway</option>
+                    <option value="Ubuntu, sans-serif">Ubuntu</option>
+                    <option value="Noto Sans, sans-serif">Noto Sans</option>
+                    <option value="PT Sans, sans-serif">PT Sans</option>
+                    <option value="Work Sans, sans-serif">Work Sans</option>
+                    <option value="Mulish, sans-serif">Mulish</option>
+                    <option value="Quicksand, sans-serif">Quicksand</option>
+                    <option value="Arial, Helvetica, sans-serif">Arial</option>
+                    <option value="Helvetica Neue, Helvetica, Arial, sans-serif">Helvetica Neue</option>
+                    <option value="Segoe UI, Arial, sans-serif">Segoe UI</option>
+                    <option value="Fira Sans, sans-serif">Fira Sans</option>
+                    <option value="Assistant, sans-serif">Assistant</option>
+                </select>
+                <svg class="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-white"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </span>
+        </label>
+        <button id="randomize-fonts" title="Randomize fonts"
+            class="flex items-center justify-center h-9 w-9 hover:cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-5 w-5 text-white"
+                fill="currentColor">
+                <path
+                    d="M0 96C0 60.7 28.7 32 64 32l320 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96zm160 64a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM128 288a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm32 64a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM320 192a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm32 64a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM320 384a32 32 0 1 0 0-64 32 32 0 1 0 0 64z" />
+            </svg>
+        </button>
+    </div>
+    <script>
+        // Google Fonts loader
+        function loadFont(font) {
+            const fontName = font.split(',')[0].replace(/['"]/g, '').trim().replace(/ /g, '+');
+            if (!document.getElementById('font-' + fontName)) {
+                const link = document.createElement('link');
+                link.id = 'font-' + fontName;
+                link.rel = 'stylesheet';
+                link.href = `https://fonts.googleapis.com/css?family=${fontName}:400,700&display=swap`;
+                document.head.appendChild(link);
+            }
+        }
+        function updateFonts() {
+            const headingFont = document.getElementById('heading-font-select').value;
+            const bodyFont = document.getElementById('body-font-select').value;
+            loadFont(headingFont);
+            loadFont(bodyFont);
+            document.body.style.fontFamily = bodyFont;
+            document.querySelectorAll('h1, h2, h3, h4').forEach(el => {
+                el.style.fontFamily = headingFont;
+            });
+        }
+        document.getElementById('heading-font-select').addEventListener('change', updateFonts);
+        document.getElementById('body-font-select').addEventListener('change', updateFonts);
+        // Set initial fonts
+        window.addEventListener('DOMContentLoaded', updateFonts);
+        // Randomize fonts button
+        document.getElementById('randomize-fonts').addEventListener('click', function () {
+            const headingSelect = document.getElementById('heading-font-select');
+            const bodySelect = document.getElementById('body-font-select');
+            headingSelect.selectedIndex = Math.floor(Math.random() * headingSelect.options.length);
+            bodySelect.selectedIndex = Math.floor(Math.random() * bodySelect.options.length);
+            updateFonts();
+        });
+    </script>
+    <div style="height:48px;"></div>
+    <!-- Header Navbar -->
+    <header class="w-full h-16 border-b border-gray-300 bg-white flex items-center">
+        <div class="container mx-auto px-6 flex items-center justify-between h-16">
+            <!-- Logo -->
+            <a href="#" class="flex items-center">
+                <img src="https://placehold.co/120x32/A43E27/FFF?text=LOGO" alt="Logo" class="h-9 w-auto" />
+            </a>
+            <!-- Nav Links -->
+            <nav>
+                <ul class="hidden md:flex space-x-8 text-gray-700 text-base font-medium">
+                    <li><a href="#" class="hover:text-[#A43E27]">Home</a></li>
+                    <li><a href="#" class="hover:text-[#A43E27]">About</a></li>
+                    <li><a href="#" class="hover:text-[#A43E27]">Programs</a></li>
+                    <li><a href="#" class="hover:text-[#A43E27]">Stories</a></li>
+                    <li><a href="#" class="hover:text-[#A43E27]">Contact</a></li>
+                </ul>
+                <!-- Mobile menu button -->
+                <button class="md:hidden flex items-center px-2 py-1">
+                    <svg class="h-6 w-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-[#A43E27]">
+                Empowering Education Leaders
+            </h1>
+            <p class="text-lg md:text-xl mb-6 text-gray-700">
+                Driving systemic change through collaborative learning and leadership.
+            </p>
+            <a href="#" class="bg-[#A43E27] text-white px-6 py-3 rounded-full text-lg hover:bg-[#a43e27]/80">Get
+                Involved</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6 md:flex md:items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <img src="https://placehold.co/600x400/56BC40/FFF" alt="About Us"
+                    class="rounded-lg shadow-lg w-full h-auto" />
+            </div>
+            <div class="md:w-1/2 md:pl-12">
+                <h2 class="text-3xl font-bold mb-4">About EduImpact</h2>
+                <p class="mb-4">
+                    EduImpact is dedicated to transforming education by empowering
+                    leaders with the tools and knowledge they need to foster
+                    environments of continuous improvement and learning.
+                </p>
+                <p>
+                    Through strategic programs and partnerships, we aim to bridge gaps
+                    in educational leadership and drive meaningful change in schools
+                    across the nation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#A43E27]">Our Programs</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-[#56BC40]">
+                    <img src="https://placehold.co/600x400" alt="Program 1" class="mb-4 rounded" />
+                    <h3 class="text-xl font-semibold mb-2 text-[#A43E27]">Leadership Workshops</h3>
+                    <p>
+                        Interactive sessions designed to enhance the skills of educational
+                        leaders, fostering innovation and effective management.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-[#56BC40]">
+                    <img src="https://placehold.co/600x400" alt="Program 2" class="mb-4 rounded" />
+                    <h3 class="text-xl font-semibold mb-2 text-[#A43E27]">Digital Learning Tools</h3>
+                    <p>
+                        Providing access to cutting-edge digital resources that support
+                        teaching and administrative excellence.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-[#56BC40]">
+                    <img src="https://placehold.co/600x400" alt="Program 3" class="mb-4 rounded" />
+                    <h3 class="text-xl font-semibold mb-2 text-[#A43E27]">Community Engagement</h3>
+                    <p>
+                        Initiatives aimed at involving communities in the educational
+                        process, ensuring inclusive and sustainable development.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-12 text-[#A43E27]">Our Impact</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-4xl font-bold text-[#A43E27]">500K+</h3>
+                    <p>Leaders Trained</p>
+                </div>
+                <div>
+                    <h3 class="text-4xl font-bold text-[#A43E27]">1M+</h3>
+                    <p>Students Reached</p>
+                </div>
+                <div>
+                    <h3 class="text-4xl font-bold text-[#A43E27]">10+</h3>
+                    <p>States Covered</p>
+                </div>
+                <div>
+                    <h3 class="text-4xl font-bold text-[#A43E27]">2K+</h3>
+                    <p>Schools Transformed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Micro-Improvement Stories Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#A43E27]">Micro-Improvement Stories</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="https://placehold.co/400x250" alt="Story 1" class="mb-4 rounded w-full h-auto" />
+                    <h3 class="text-xl font-semibold mb-2 text-[#A43E27]">Empowering Teachers</h3>
+                    <p>How a simple peer-learning circle helped teachers in rural Karnataka improve classroom engagement
+                        and student outcomes.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="https://placehold.co/400x250" alt="Story 2" class="mb-4 rounded w-full h-auto" />
+                    <h3 class="text-xl font-semibold mb-2 text-[#A43E27]">Community Involvement</h3>
+                    <p>Mobilizing local communities in Odisha to co-create solutions for school attendance and
+                        infrastructure challenges.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="https://placehold.co/400x250" alt="Story 3" class="mb-4 rounded w-full h-auto" />
+                    <h3 class="text-xl font-semibold mb-2 text-[#A43E27]">Student Voice</h3>
+                    <p>Students in Maharashtra leading micro-projects to make their schools more inclusive and vibrant.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Micro-Improvements Work Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8 text-[#A43E27]">How Micro-Improvements Work</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <img src="https://placehold.co/100x100" alt="Sense"
+                        class="mx-auto mb-4 w-full h-auto max-w-[100px]" />
+                    <h4 class="font-semibold text-lg mb-2 text-[#A43E27]">Sense</h4>
+                    <p>School leaders identify local challenges through data and dialogue.</p>
+                </div>
+                <div>
+                    <img src="https://placehold.co/100x100" alt="Co-Create"
+                        class="mx-auto mb-4 w-full h-auto max-w-[100px]" />
+                    <h4 class="font-semibold text-lg mb-2 text-[#A43E27]">Co-Create</h4>
+                    <p>Stakeholders collaborate to design actionable, context-specific solutions.</p>
+                </div>
+                <div>
+                    <img src="https://placehold.co/100x100" alt="Act"
+                        class="mx-auto mb-4 w-full h-auto max-w-[100px]" />
+                    <h4 class="font-semibold text-lg mb-2 text-[#A43E27]">Act</h4>
+                    <p>Implement small, focused changes with available resources.</p>
+                </div>
+                <div>
+                    <img src="https://placehold.co/100x100" alt="Reflect & Scale"
+                        class="mx-auto mb-4 w-full h-auto max-w-[100px]" />
+                    <h4 class="font-semibold text-lg mb-2 text-[#A43E27]">Reflect & Scale</h4>
+                    <p>Review outcomes, share learnings, and scale what works across the system.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners & Collaborators Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#A43E27]">Our Partners</h2>
+            <div class="grid md:grid-cols-4 gap-8 items-center">
+                <img src="https://placehold.co/200x80?text=Govt+Partner" alt="Government Partner"
+                    class="mx-auto w-full h-auto max-w-[200px]" />
+                <img src="https://placehold.co/200x80?text=NGO+Partner" alt="NGO Partner"
+                    class="mx-auto w-full h-auto max-w-[200px]" />
+                <img src="https://placehold.co/200x80?text=CSR+Partner" alt="CSR Partner"
+                    class="mx-auto w-full h-auto max-w-[200px]" />
+                <img src="https://placehold.co/200x80?text=Community" alt="Community"
+                    class="mx-auto w-full h-auto max-w-[200px]" />
+            </div>
+            <p class="text-center mt-8 text-gray-700">We unite government, civil society, and market players to drive
+                educational equity at scale.</p>
+        </div>
+    </section>
+
+    <!-- Get Involved / Join the Movement Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8 text-[#A43E27]">Join the Movement</h2>
+            <p class="mb-8 text-lg text-gray-700">Whether you are a school leader, teacher, policymaker, or community
+                member, your actions matter. Be a catalyst for change in India's education system.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="#"
+                    class="bg-[#A43E27] text-white px-6 py-3 rounded-full text-lg hover:bg-[#56BC40] hover:text-white">For
+                    School Leaders</a>
+                <a href="#"
+                    class="bg-[#A43E27] text-white px-6 py-3 rounded-full text-lg hover:bg-[#56BC40] hover:text-white">For
+                    Partners</a>
+                <a href="#"
+                    class="bg-[#A43E27] text-white px-6 py-3 rounded-full text-lg hover:bg-[#56BC40] hover:text-white">For
+                    Volunteers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#A43E27]">Voices from the Field</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow">
+                    <img src="https://placehold.co/80x80" alt="Leader"
+                        class="rounded-full mx-auto mb-4 w-full h-auto max-w-[80px]" />
+                    <p class="italic mb-2">"Micro-improvements helped our school community come together and solve real
+                        problems."</p>
+                    <p class="font-semibold text-[#A43E27]">- School Leader, Tamil Nadu</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow">
+                    <img src="https://placehold.co/80x80" alt="Teacher"
+                        class="rounded-full mx-auto mb-4 w-full h-auto max-w-[80px]" />
+                    <p class="italic mb-2">"I feel empowered to make a difference, one step at a time."</p>
+                    <p class="font-semibold text-[#A43E27]">- Teacher, Uttar Pradesh</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow">
+                    <img src="https://placehold.co/80x80" alt="Community"
+                        class="rounded-full mx-auto mb-4 w-full h-auto max-w-[80px]" />
+                    <p class="italic mb-2">"Collaboration is the key. ShikshaLokam brings us together."</p>
+                    <p class="font-semibold text-[#A43E27]">- Community Member, Odisha</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#A43E27] text-white py-8 border-t-5 border-[#56BC40]">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 EduImpact. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
